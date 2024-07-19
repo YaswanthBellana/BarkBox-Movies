@@ -20,9 +20,11 @@ const MovieCard = ({ title, author, publicationDate }) => {
   return (
     <div className="movie-card">
       <img src={dogImage} alt="Random dog" />
-      <h2>{title}</h2>
-      <p>Author: {author}</p>
-      <p>Published: {publicationDate}</p>
+      <div className='container2'>
+        <h2 className='hello'>{title}</h2>
+        <p className='hellop'>Author: {author}</p>
+        <p className='hellop'>Published: {publicationDate}</p>
+      </div>
     </div>
   );
 };

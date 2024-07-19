@@ -14,8 +14,8 @@ const MovieSearch = () => {
     setLoading(true);
     setError(null);
     try {
-      const offset = (page - 1) * 16;
-      const response = await axios.get(`https://openlibrary.org/search.json?title=${query}&offset=${offset}&limit=16`);
+      const offset = (page - 1) * 14;
+      const response = await axios.get(`https://openlibrary.org/search.json?title=${query}&offset=${offset}&limit=14`);
       setMovies(response.data.docs);
     } catch (error) {
       setError('Error fetching data. Please try again.');
@@ -49,8 +49,11 @@ const MovieSearch = () => {
     <div>
       <h1>Movie Search App</h1>
       <SearchBar onSearch={handleSearchSubmit} />
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      <div className='loaderor'>
+        {loading && <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="Loading..." />}
+        {error && <p className='errorName'>{error}</p>}
+        {movies.length === 0 && <p className='errorName'>Oops! <br /> We found nothing.</p>}
+      </div>
       <div className="movie-cards-container">
         {movies.map((movie) => (
           <MovieCard 
