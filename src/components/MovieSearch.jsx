@@ -7,7 +7,7 @@ const MovieSearch = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [query, setQuery] = useState('');  // Added to track the search query
+  const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
 
   const handleSearch = async (query) => {
@@ -34,17 +34,15 @@ const MovieSearch = () => {
     }
   };
 
-  // Effect to fetch movies when the page or query changes
   useEffect(() => {
     if (query) {
       handleSearch(query);
     }
   }, [page, query]);
 
-  // Handle search from the search bar
   const handleSearchSubmit = (searchQuery) => {
     setQuery(searchQuery);
-    setPage(1);  // Reset to the first page when a new search is made
+    setPage(1);
   };
 
   return (

@@ -28,10 +28,11 @@ const Captcha = () => {
   };
 
   return (
-    <div>
+    <div className='mainContainerC'>
       <h1>Enter Captcha to Proceed</h1>
+      <div className='formcontainer'>
       <form onSubmit={handleSubmit}>
-        <p>{captcha}</p>
+        <p className='formCaptchaPara'>{captcha}</p>
         <input 
           type="text" 
           value={input} 
@@ -40,7 +41,9 @@ const Captcha = () => {
         />
         <button type="submit">Submit</button>
       </form>
-      {error && <p>{error}</p>}
+      <br />
+      {error && <p className='errorName'>{error}</p>}
+      </div>
     </div>
   );
 };
